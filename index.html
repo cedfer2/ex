@@ -1,20 +1,30 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://cedfer2.github.io/ex/jsonpath.min.js"></script>
 <script>
+/*https://github.com/dchester/jsonpath*/
 (function($){
 var json;
 var arg='balnero';
+var url='https://cedfer2.github.io/ex/c.json';
 $.ajax({
   type: 'GET',
-  url: 'https://cedfer2.github.io/ex/c.json',
+  url: url,
   dataType: 'text',
+  error: function() {   
+    console.log('error!');
+  },
   beforeSend: function() {
-        console.log('Loading...');
-    },
-  success: function (data, textStatus, jqXHR) {
+    console.log('cargando...[show spinner]');
+  },
+  complete: function() {
+    console.log('peticionCompleta...[hide spinner]');
+  },
+  success: function (data, textStatus, jqXHR) {    
+    console.log('success');
     json=$.parseJSON(data);
   }
 });
+
 jsonpath.query(json, '$..[?(@.curso.toUpperCase().indexOf("'+arg.toUpperCase()+'")>=0)]');
 })(jQuery);
 </script>

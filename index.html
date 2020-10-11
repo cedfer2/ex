@@ -22,8 +22,8 @@ $.ajax({
   success: function (data, textStatus, jqXHR) {    
     console.log('success');
     json=$.parseJSON(data);
+    console.log(jsonpath.query(json, '$..[?(@.curso.toUpperCase().indexOf("'+arg.toUpperCase()+'")>=0)]'));
   }
 });
-console.log(jsonpath.query(json, '$..[?(@.curso.toUpperCase().indexOf("'+arg.toUpperCase()+'")>=0)]'));
 })(jQuery);
 </script>

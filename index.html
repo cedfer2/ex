@@ -1,0 +1,20 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cedfer2.github.io/ex/jsonpath.min.js"></script>
+<script>
+(function($){
+var json;
+var arg='balnero';
+$.ajax({
+  type: 'GET',
+  url: 'https://cedfer2.github.io/ex/c.json',
+  dataType: 'text',
+  beforeSend: function() {
+        console.log('Loading...');
+    },
+  success: function (data, textStatus, jqXHR) {
+    json=$.parseJSON(data);
+  }
+});
+jsonpath.query(json, '$..[?(@.curso.toUpperCase().indexOf("'+arg.toUpperCase()+'")>=0)]');
+})(jQuery);
+</script>

@@ -24,7 +24,6 @@ $.ajax({
     json=$.parseJSON(data);
   }
 });
-
-jsonpath.query(json, '$..[?(@.curso.toUpperCase().indexOf("'+arg.toUpperCase()+'")>=0)]');
+console.log(jsonpath.query(json, '$..[?(@.curso.toUpperCase().indexOf("'+arg.toUpperCase()+'")>=0)]'));
 })(jQuery);
 </script>

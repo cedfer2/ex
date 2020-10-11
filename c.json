@@ -1,0 +1,73 @@
+{
+    "Bienestar": [
+        {
+            "id_curso": "2",
+            "curso": "Autocuidado de la salud física y mental",
+            "mas_solicitado": "1"
+        },
+        {
+            "id_curso": "14",
+            "curso": "Balance de vida",
+            "mas_solicitado": "1"
+        },
+        {
+            "id_curso": "23",
+            "curso": "Balneroterapia",
+            "mas_solicitado": "1"
+        },
+        {
+            "id_curso": "25",
+            "curso": "Pilates",
+            "mas_solicitado": "1"
+        }
+    ],
+    "Comu": [
+        {
+            "id_curso": "50",
+            "curso": "Comunicación asertiva",
+            "mas_solicitado": "1"
+        },
+        {
+            "id_curso": "55",
+            "curso": "Idiomas",
+            "mas_solicitado": "0"
+        },
+        {
+            "id_curso": "99",
+            "curso": "Imagen",
+            "mas_solicitado": "0"
+        },
+        {
+            "id_curso": "5",
+            "curso": "Imagen profesional",
+            "mas_solicitado": "1"
+        },
+        {
+            "id_curso": "4",
+            "curso": "Imagen y protocolo",
+            "mas_solicitado": "1"
+        }
+    ],
+    "Lab": [
+        {
+            "id_curso": "12",
+            "curso": "Acoso laboral y sexual en ambientes laborales",
+            "mas_solicitado": "1"
+        },
+        {
+            "id_curso": "888",
+            "curso": "Contratos",
+            "mas_solicitado": "1"
+        },
+        {
+            "id_curso": "766",
+            "curso": "Dilemas éticos",
+            "mas_solicitado": "1"
+        },
+        {
+            "id_curso": "0",
+            "curso": "Gestión del capital intelectual por competencias",
+            "mas_solicitado": "1"
+        }
+    ]
+}

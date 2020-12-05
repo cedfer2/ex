@@ -6,6 +6,7 @@
 // @copyright      @copyright 2020, ced (https://cedfer2.github.io/ex/)
 // @version        1.0.0
 // @license        BSD
+// @author         ced
 // @homepageURL    https://cedfer2.github.io/ex/
 // @supportURL     https://cedfer2.github.io/ex/issues
 // @icon           https://cdn0.iconfinder.com/data/icons/ui-designer-and-creative-design/64/Popup-window-ui-512.png

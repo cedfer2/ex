@@ -6,4 +6,5 @@ body,
 .cookie-notice__CookieNoticeWrapper-sc-186p755-0
 {
     display: none !important;
+    visibility: hidden !important;
 }

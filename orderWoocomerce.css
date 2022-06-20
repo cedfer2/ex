@@ -1,0 +1,120 @@
+.wp-admin .wp-list-table .status-wc-cancelled,
+.wp-admin .wp-list-table .status-wc-failed,
+.wp-admin .wp-list-table .status-wc-on-hold,
+.wp-admin .wp-list-table .status-wc-pending
+{
+	display: none !important;
+}
+
+
+.woocommerce_order_items_wrapper .woocommerce_order_items thead tr,
+#order_line_items .item,
+#order_shipping_line_items .shipping
+{
+display: flex;
+width: 68vw;
+width: 99.7%;
+}
+
+.woocommerce_order_items_wrapper .woocommerce_order_items thead tr
+{
+background-color: #f8f8f8;
+}
+
+
+
+#order_line_items .item .name,
+#order_line_items .item .item_cost,
+#order_line_items .item .view,
+#order_line_items .item .quantity,
+#order_line_items .item .line_cost,
+#order_line_items .item .wc-order-edit-line-item,
+#order_shipping_line_items .shipping td
+{
+ min-width: max-content !important;
+}
+
+
+
+#order_line_items .item .name
+{
+    flex-grow: 3;
+}
+
+
+.woocommerce_order_items_wrapper .woocommerce_order_items thead tr .item.sortable
+{
+    flex-grow: 0.88;
+}
+
+
+#order_shipping_line_items .shipping .name
+{
+    flex-grow: 0.93;
+}
+
+
+.woocommerce_order_items_wrapper .woocommerce_order_items thead tr .wc-order-edit-line-item
+{
+    padding-left: 2em !important;
+}
+
+
+#order_shipping_line_items .shipping .name .view .display_meta
+{
+    max-width: 300px;
+}
+
+
+.woocommerce_order_items_wrapper .woocommerce_order_items thead tr .wc-order-edit-line-item,
+#order_line_items .thumb,
+#order_shipping_line_items .shipping .thumb
+
+{
+    order: 0;
+    
+}
+
+.woocommerce_order_items_wrapper .woocommerce_order_items thead tr .quantity,
+#order_line_items .item .quantity,
+#order_shipping_line_items .shipping .quantity
+{
+    order:1;
+}
+
+.woocommerce_order_items_wrapper .woocommerce_order_items thead tr .item.sortable,
+#order_line_items .item .name,
+#order_shipping_line_items .shipping .name
+
+{
+    order: 2;
+}
+
+.woocommerce_order_items_wrapper .woocommerce_order_items thead tr .item_cost,
+#order_line_items .item .item_cost,
+#order_shipping_line_items .shipping .line_cost
+{
+    order: 3;
+}
+
+.woocommerce_order_items_wrapper .woocommerce_order_items thead tr .line_cost,
+#order_line_items .item .line_cost,
+#order_shipping_line_items .shipping .wc-order-edit-line-item
+{
+    order: 4;
+}
+
+#order_line_items .item .wc-order-edit-line-item
+{
+    order: 5;
+}
+
+#order_line_items .item .quantity .view
+{
+    font-size:20px;
+}
+
+#order_line_items .item .quantity .view .times
+{
+    margin-right: 0px !important;
+}

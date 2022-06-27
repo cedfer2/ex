@@ -60,7 +60,8 @@ background-color: #f8f8f8;
 }
 
 
-#order_shipping_line_items .shipping .name .view .display_meta
+#order_shipping_line_items .shipping .name .view .display_meta,
+#order_shipping_line_items .shipping .name .view .display_meta p
 {
     max-width: 300px;
 }

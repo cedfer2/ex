@@ -19,7 +19,8 @@ http://www.forosdelweb.com/f13/conteo-regresivo-enviar-datos-557260/
       conteo.setTime(conteo.getTime() - 1000);
     }else{
       clearInterval(intervaloRegresivo);
-      location.reload();
+      window.history.forward(1);
+      location.reload(true);
     }
     jQuery("#cuenta").text(conteo.getMinutes() + ":" + conteo.getSeconds());
   }

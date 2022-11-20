@@ -1,10 +1,5 @@
-/*
-http://ionden.com/a/plugins/ion.sound/en.html
-http://www.forosdelweb.com/f13/conteo-regresivo-enviar-datos-557260/
-*/
 
-
-  var timeLimit = 10; //tiempo en minutos
+  var timeLimit = 1; //tiempo en minutos
   var conteo = new Date(timeLimit * 60000);
 
   function inicializar(){
@@ -53,17 +48,6 @@ if (searchParams.get('post_type') == 'shop_order') {
 
   $(document).ready(function() {
 
-    ion.sound({
-      sounds: [
-      {name: "tono-mensaje-3"},
-      {name: "plop8"}
-              ],
-      path: "https://cedfer2.github.io/ex/",
-            preload: true,
-            multiplay: true,
-            volume: 1.0
-    });
-
     Notification.requestPermission();
     const permission = navigator.permissions.query({name: "notifications"});
     if (permission.state === "granted") {
@@ -87,7 +71,6 @@ if (searchParams.get('post_type') == 'shop_order') {
                           window.focus();
                          };
             nf.onshow = function() {
-                  ion.sound.play("tono-mensaje-3");
                   console.log("nf.onshow");
                         setTimeout(function() {
                           nf.close()
@@ -96,7 +79,7 @@ if (searchParams.get('post_type') == 'shop_order') {
             nf.onclose = function() { 
             console.log("close");
             };
-      } else {
+      } else {  
         console.log("not supported");
       }
     }
@@ -112,6 +95,8 @@ if (searchParams.get('post_type') == 'shop_order') {
                                       if (Number(wpCookies.get("data-order-id["+$( this ).find(".order_number .order-preview").attr("data-order-id")+"]")) < 2){
                                         console.log("Notifica:"+ $( this ).find(".order_number .order-view").text() +
                                                     "="+ wpCookies.get("data-order-id["+$( this ).find(".order_number .order-preview").attr("data-order-id")+"]") );
+                                        var mp3_url = 'https://cedfer2.github.io/ex/tono-mensaje-3.mp3';
+                                        (new Audio(mp3_url)).play();
                                         Notifica(
                                                   "pedido:"+ $( this ).find(".order_number .order-view").text(),
                                                   $( this ).find(".order_number .order-view").attr("href"));

@@ -163,6 +163,6 @@ $('#cbox3').on('click', function() {
     $('#botton4').on('click', function() {
       $("body").after($('<style type="text/css" class="ScreenshotCss"> .woocommerce-layout__header, #wpadminbar { position: static !important; } .woocommerce_order_items_wrapper tr > .item.sortable, .woocommerce_order_items #order_shipping_line_items .name .view { max-width: 100px; } #order_line_items .name{ max-width: 300px !important; width: 100px; display: block; } #order_line_items .wc-order-item-name{ max-width: 120px; display: block; } .display_meta{ display: none; } </style>'));
     });
-
+    $("body").after($('<style type="text/css" class="SolgrisCss">#the-list > tr{ outline: solid 1px #e5e5e5 !important;}</style>'));
   });
 })(jQuery);

@@ -110,6 +110,7 @@ background-color: #f8f8f8;
 {
     margin-right: 0px !important;
 }
+
 #the-list > tr{
-        outline: solid 1px #e5e5e5;
+        outline: solid 1px #e5e5e5 !important;
 }

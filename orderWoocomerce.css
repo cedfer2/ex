@@ -1,12 +1,3 @@
-.wp-admin .wp-list-table .status-wc-cancelled,
-.wp-admin .wp-list-table .status-wc-failed,
-.wp-admin .wp-list-table .status-wc-on-hold,
-.wp-admin .wp-list-table .status-wc-pending
-{
-	display: none !important;
-}
-
-
 .woocommerce_order_items_wrapper .woocommerce_order_items thead tr,
 #order_line_items .item,
 #order_shipping_line_items .shipping

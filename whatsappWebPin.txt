@@ -1,0 +1,139 @@
+function r(f){/in/.test(document.readyState)?setTimeout(r,30000,f):f()}
+r(function(){ 
+	console.log("cargado.."); 
+	(function($){
+	$( document ).ready(function() {
+
+		function setStyl(value,tim){
+			$("body").after($('<style type="text/css" class="injectCss">.ggj6brxn[title$="' + value + '"] { background-color: #00a884;font-size: 24px;}</style>'));
+			localStorage.setItem("pinnd", value);
+			localStorage.setItem("timm", tim);
+			$("#injectCheck").addClass("pindf");
+			$('#injectCheck ._3ndVb').attr('title',('Insert marks >> '+value+' '+tim))
+		}
+
+		function InjCheck(){
+			$('<div class="pin"><label class="labpin"><input type="checkbox" class="cbox1" value="first_checkbox"/></label></div>').insertAfter('.g0rxnol2 ._199zF');
+			$('.cbox1').on('click', function() {
+			if($(this).is(':checked') ){
+				$(".cbox1").prop('checked',false);
+				$(".injectCss").remove();
+				$(this).prop('checked',true);
+				setStyl($(this).closest(".g0rxnol2").find(".ggj6brxn").attr("title"), $(this).closest(".g0rxnol2").find(".aprpv14t").text());
+
+			} else {
+				$(".cbox1").prop('checked',false);
+				$(".injectCss").remove();
+				localStorage.removeItem("pinnd");
+				localStorage.removeItem("timm");
+				$("#injectCheck").removeClass("pindf");
+				$('#injectCheck ._3ndVb').attr('title','Insert marks')
+			}
+		});
+		
+		}
+		function InjCop(){
+			$('<div class="coppe"><div class="kcop" role="button" tabindex="0" title="copiar titulo"><span data-icon="coppy" class="ic"><img class="iccimg" src="https://imageupload.io/ib/wF0uPKO3vEXqCcF_1694565589.png" alt="ic.png"/></span></div></div>').insertBefore('.cm280p3y .lna84pfr ._3IzYj');
+			$('.kcop').on('click', function() {
+				var dummyContent = $(this).closest(".cm280p3y").find(".gfz4du6o ._11JPr").text().replace(/.pdf/g,'');
+				var dummy = $('<input>').val(dummyContent).appendTo('body').select();
+				document.execCommand('copy');
+				console.log(dummyContent);
+				alert("copiado "+ dummyContent);
+				$(dummy).remove();
+			});
+		}
+		
+		$('<div class="_3OtEr" id="injectCheck"><div role="button" class="_3ndVb" title="Insert marks"><span data-icon="pinned2" class=""><svg height="15" width="15" preserveAspectRatio="xMidYMid meet" class=""><path fill="currentColor" d="M12.074 4.21 8.7 8.232l.116 4.233a.4.4 0 0 1-.657.318L.43 6.297a.4.4 0 0 1 .199-.702l4.196-.622L8.196.957a.63.63 0 0 1 .887-.078l2.914 2.445a.63.63 0 0 1 .077.887ZM1.294 14.229a.713.713 0 0 1-1.09-.915l2.674-3.64 1.536 1.288-3.12 3.267Z"></path></svg></span></div><span></span></div>').insertAfter('._1sPvB > span');
+		$('<div class="_3OtEr" id="injectCop"><div role="button" class="_3ndVb" title="Insert Cops"><span data-icon="coppz" class="coppzx"><img class="iccimg" src="https://imageupload.io/ib/wF0uPKO3vEXqCcF_1694565589.png" alt="ic.png"/></span></div></div>').insertAfter('._1sPvB > span');
+
+		
+		InjCheck();
+		setStyl(localStorage.getItem("pinnd"),localStorage.getItem("timm"));
+		$('#injectCheck').on('click', function() {
+			$(".pin").remove();
+			InjCheck();
+		});
+		$('#injectCop').on('click', function() {
+			$(".coppe").remove();
+			InjCop();
+		});
+	});
+})(jQuery);
+
+});
+
+
+
+------------------
+
+.g0rxnol2 > div[role="row"],
+.g0rxnol2 [role="row"] > ._199zF
+{
+    display: flex;
+}
+
+[data-testid="cell-frame-container"]
+{
+width: 95%;
+}
+
+.g0rxnol2 [role="row"] > ._199zF{
+	flex-grow: 2;
+	max-width: 95%;
+}
+
+.pin{
+    background: #1e3a4a;
+    display: flex;
+    align-items: center;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    z-index: 2127;
+}
+
+._199zF.pActive
+{
+    background: #005c4b !important
+}
+.pin .cbox1{
+    margin:2px;
+}
+
+.g0rxnol2 .matched-text
+{
+    color: #00ff14;
+}
+.pindf{
+    padding: 5px;
+    background: #111b21;
+}
+
+/*copy*/
+
+.coppzx{
+   padding: 5px;
+}
+
+.coppzx .iccimg
+{
+    width: 16px;
+}
+
+.lna84pfr ._3IzYj
+{
+    vertical-align: super;
+}
+
+.ic .iccimg{
+    width: 20px;
+}
+
+.coppe{
+    display: inline-block;
+}
+
+.coppe{
+margin-right: 10px;
+    padding: 2px;
+}

@@ -28,7 +28,7 @@ if (searchParams.get('post_type') == 'shop_order') {
   $("#woocommerce-activity-panel .woocommerce-layout__activity-panel-tabs").prepend('<div id="conterr" class="components-button woocommerce-layout__activity-panel-tab"><label><input type="checkbox" id="cbox1" value="first_checkbox"> Autorefesh</label><b id="cuenta" class="timmer">0</b></div>');
   inicializar();
 
-  $("#cbox1").prop("checked", !!$.parseJSON(wpCookies.get("Autorefesh"))).change(function() {
+  $("#cbox1").prop("checked", !!$.parseJSON(localStorage.getItem("Autorefesh"))).change(function() {
     var $input = $( this );
     console.log(
                 " .attr( \"checked\" ): " + $input.attr( "checked" ) +
@@ -36,14 +36,64 @@ if (searchParams.get('post_type') == 'shop_order') {
                 " .is( \":checked\" ): " + $input.is( ":checked" ));
     if($('#cbox1').is(":checked")) {
       $(this).prop(":checked",true);
-      wpCookies.set("Autorefesh","true")
+      localStorage.setItem("Autorefesh","true")
       cuenta();
     } else {
       $(this).prop(":checked",false);
-      wpCookies.set("Autorefesh","false")
+      localStorage.setItem("Autorefesh","false")
     }
-    console.log("Autorefesh:", wpCookies.get("Autorefesh"));
+    console.log("Autorefesh:", localStorage.getItem("Autorefesh"));
   }).trigger("change");
+$("#woocommerce-activity-panel .woocommerce-layout__activity-panel-tabs").prepend('<div id="ImprTick" class="components-button woocommerce-layout__activity-panel-tab"><label><input type="checkbox" id="cbox2" value="second_checkbox"> Solo Imprimir</label></div>');
+$("#woocommerce-activity-panel .woocommerce-layout__activity-panel-tabs").prepend('<div id="FallidTick" class="components-button woocommerce-layout__activity-panel-tab"><label><input type="checkbox" id="cbox3" value="tercer_checkbox"> Solo fallidos</label></div>');
+
+function setStylImpress(){
+  $("body").after($('<style type="text/css" class="SolImpressCss">.wp-admin .wp-list-table .status-wc-cancelled, .wp-admin .wp-list-table .status-wc-failed, .wp-admin .wp-list-table .status-wc-on-hold, .wp-admin .wp-list-table .status-wc-pending { display: none !important; }</style>'));
+}
+
+function setStylFallid(){
+  $("body").after($('<style type="text/css" class="SolFallidCss">.status-wc-completed, .status-wc-processing{ display: none !important; }</style>'));
+}
+
+function getcbox2(){
+  if($('#cbox2').is(':checked') ){
+    $(".SolImpressCss").remove();
+    localStorage.setItem("Impress", true);
+    setStylImpress();
+  } else {
+    $(".SolImpressCss").remove();
+    localStorage.setItem("Impress", false);
+  }
+  console.log("Impress: ", localStorage.getItem("Impress"));
+}
+
+function getcbox3(){
+  if($('#cbox3').is(':checked') ){
+    $(".SolFallidCss").remove();
+    localStorage.setItem("Fallid", true);
+    setStylFallid();
+  } else {
+    $(".SolFallidCss").remove();
+    localStorage.setItem("Fallid", false);
+  }
+  console.log("Fallid: ", localStorage.getItem("Fallid"));
+}
+
+
+$('#cbox2').prop('checked',(localStorage.getItem("Impress") === "true"));
+$('#cbox3').prop('checked',(localStorage.getItem("Fallid") === "true"));
+
+getcbox2();
+getcbox3();
+
+$('#cbox2').on('click', function() {
+  getcbox2();
+});
+
+$('#cbox3').on('click', function() {
+  getcbox3();
+});
+
 }
 
   $(document).ready(function() {
@@ -92,23 +142,27 @@ if (searchParams.get('post_type') == 'shop_order') {
                                                   " wpCookies: "+ $( this ).find(".order_number .order-preview").attr("data-order-id")
                                                  );
 
-                                      if (Number(wpCookies.get("data-order-id["+$( this ).find(".order_number .order-preview").attr("data-order-id")+"]")) < 2){
+                                      if (Number(localStorage.getItem("data-order-id["+$( this ).find(".order_number .order-preview").attr("data-order-id")+"]")) < 2){
                                         console.log("Notifica:"+ $( this ).find(".order_number .order-view").text() +
-                                                    "="+ wpCookies.get("data-order-id["+$( this ).find(".order_number .order-preview").attr("data-order-id")+"]") );
+                                                    "="+ localStorage.getItem("data-order-id["+$( this ).find(".order_number .order-preview").attr("data-order-id")+"]") );
                                         var mp3_url = 'https://cedfer2.github.io/ex/tono-mensaje-3.mp3';
                                         (new Audio(mp3_url)).play();
                                         Notifica(
                                                   "pedido:"+ $( this ).find(".order_number .order-view").text(),
                                                   $( this ).find(".order_number .order-view").attr("href"));
                                       }
-                                        wpCookies.set("data-order-id["+$( this ).find(".order_number .order-preview").attr("data-order-id")+"]", Number(wpCookies.get("data-order-id["+$( this ).find(".order_number .order-preview").attr("data-order-id")+"]"))+1)
+                                        localStorage.setItem("data-order-id["+$( this ).find(".order_number .order-preview").attr("data-order-id")+"]", Number(localStorage.getItem("data-order-id["+$( this ).find(".order_number .order-preview").attr("data-order-id")+"]"))+1)
 
                                     });
     } else {
       $("#the-list .author-other").each(function( index ) {
-        wpCookies.remove("data-order-id["+$( this ).find(".order_number .order-preview").attr("data-order-id")+"]")
+        localStorage.removeItem("data-order-id["+$( this ).find(".order_number .order-preview").attr("data-order-id")+"]")
       });
     }
+    $("#woocommerce-activity-panel .woocommerce-layout__activity-panel-tabs").prepend('<div id="ScreenShotTick" class="components-button woocommerce-layout__activity-panel-tab"><label><input type="button" id="botton4" value="Screenshot"></label></div>');
+    $('#botton4').on('click', function() {
+      $("body").after($('<style type="text/css" class="ScreenshotCss"> .woocommerce-layout__header, #wpadminbar { position: static !important; } .woocommerce_order_items_wrapper tr > .item.sortable, .woocommerce_order_items #order_shipping_line_items .name .view { max-width: 100px; } #order_line_items .name{ max-width: 300px !important; width: 100px; display: block; } #order_line_items .wc-order-item-name{ max-width: 120px; display: block; } .display_meta{ display: none; } </style>'));
+    });
 
   });
 })(jQuery);

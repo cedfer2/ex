@@ -1,3 +1,9 @@
+/*
+
+plugin: https://chrome.google.com/webstore/detail/user-javascript-and-css/nbhcbdghjpllgmfilhnhkllmkecfmpld 
+
+*/
+
 (function($){
 	let searchParams = new URLSearchParams(window.location.search);
 	if (searchParams.get('post_type') == 'shop_order') {
